@@ -5,7 +5,12 @@ var MessagesView = {
   initialize: function() {
   },
 
-  render: function() {
+  renderMessage: function(message) {
+    var html = '';
+
+    html += MessageView.render(message);
+
+    this.$chats.append(html);
   }
 
 };
