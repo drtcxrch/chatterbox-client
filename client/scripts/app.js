@@ -5,7 +5,8 @@ var App = {
   username: 'anonymous',
 
   initialize: function() {
-    App.username = window.location.search.substr(10);
+    var tempName = window.location.search.substr(10).split('%20').join(' ');
+    App.username = tempName;
 
     FormView.initialize();
     RoomsView.initialize();
@@ -20,9 +21,10 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      // console.log(data);
+      console.log(data);
       Messages = data.results;
       MessagesView.render();
+      RoomsView.render();
       callback();
     });
   },

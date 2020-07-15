@@ -27,17 +27,17 @@ var MessagesView = {
     for (let i = 0; i < message.text.length; i++) {
 
       if (message.text[i] === '&') {
-       newText += '&amp';
+        newText += '&amp';
       } else if (message.text[i] === '<') {
-       newText += '&lt';
+        newText += '&lt';
       } else if (message.text[i] === '>') {
-       newText += '&gt';
+        newText += '&gt';
       } else if (message.text[i] === '"') {
-       newText += '&quot';
+        newText += '&quot';
       } else if (message.text[i] === "'") {
-       newText += '&$x27';
+        newText += '&$x27';
       } else if (message.text[i] === '/') {
-       newText += '&#x2F';
+        newText += '&#x2F';
       } else {
         newText += message.text[i];
       }
@@ -59,6 +59,8 @@ var MessagesView = {
         newUsername += '&$x27';
       } else if (message.username[i] === '/') {
         newUsername += '&#x2F';
+      } else {
+        newUsername += message.username[i];
       }
     }
 
