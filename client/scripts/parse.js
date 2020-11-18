@@ -4,6 +4,7 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // todo: save a message to the server
+    //I think that this is where the POST request will go.
   },
 
   readAll: function(successCB, errorCB = null) {

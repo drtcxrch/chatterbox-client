@@ -20,8 +20,9 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
-
+      // console.log(data);
+      //Here is where MessagesView.render is being called. One we have a working render function, this should automatically fill the chat feed upon loading.
+      MessagesView.render(data);
       callback();
     });
   },

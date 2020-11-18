@@ -1,12 +1,16 @@
 var MessageView = {
 
-  render: _.template(`
-      <!--
-      <div class="chat">
-        <div class="username"></div>
-        <div></div>
-      </div>
-      -->
-    `)
+  render: _.template(
+    '<div class="chat">' +
+      '<div class="username"><%=username%></div>' +
+      '<div class="text"><%=text%></div>' +
+      '<div class="createdAt"><%=createdAt%></div>' +
+    '</div>'
+  )
 
 };
+
+// ${prefix}'03454545'
+
+
+
