@@ -18,6 +18,11 @@ var FormView = {
     var message = document.getElementById('message').value;
     console.log(username);
     Parse.create(message);
+    var message = {
+      username: 'shawndrost',
+      text: 'trololo',
+      roomname: '4chan'
+    };
   },
 
   setStatus: function(active) {
