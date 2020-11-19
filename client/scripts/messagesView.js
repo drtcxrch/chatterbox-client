@@ -14,14 +14,50 @@ var MessagesView = {
     // append each message to the chats div
 
 
-    var html = '';
-    for (var i = 0; i < data.results.length; i++) {
-      var user = data.results[i];
+
+    for (var user of data.results) {
       console.log(user);
-      html += MessageView.render(user);
+      if (user.username === undefined) {
+        user.username = 'anonymous';
+      }
+
+      if (user.text === undefined) {
+        user.text = '';
+      }
+
+      for (var char of user.username) {
+        if (char === '&') {
+          char = '&amp';
+        } else if (char === '<') {
+          char = '&lt';
+        } else if (char === '>') {
+          char = '&gt';
+        } else if (char === '"') {
+          char = '&quot';
+        } else if (char === "'") {
+          char = '&#x27';
+        }
+      }
+
+      for (var char of user.text) {
+        if (char === '&') {
+          char = '&amp';
+        } else if (char === '<') {
+          char = '&lt';
+        } else if (char === '>') {
+          char = '&gt';
+        } else if (char === '"') {
+          char = '&quot';
+        } else if (char === "'") {
+          char = '&#x27';
+        }
+      }
+
+      var templated = MessageView.render(user);
+      $('#chats').append(templated);
     }
-    console.log(html);
-    $('#chats').append(html);
+
+
 
 
   }
