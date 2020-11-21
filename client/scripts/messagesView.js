@@ -27,6 +27,7 @@ var MessagesView = {
 
 
     for (var user of data.results) {
+
       // console.log(user);
       if (user.username === undefined) {
         user.username = 'anonymous';
@@ -34,8 +35,7 @@ var MessagesView = {
       if (user.text === undefined) {
         user.text = '';
       }
-
-      if (user.roomname === undefined) {
+      if (user.roomname === undefined || user.roomname === null) {
         user.roomname = 'lobby';
       }
       user.username = MessagesView.encode(user.username);
@@ -47,10 +47,26 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
+    if (message.username === undefined || message.username === null) {
+      message.username = 'anonymous';
+    }
+    if (message.text === undefined || message.text === null) {
+      message.text = '';
+    }
+    if (message.roomname === undefined || message.roomname === null) {
+      message.roomname = 'lobby';
+    }
     message.username = MessagesView.encode(message.username);
-    message.text = MessagesView.encode(message.username);
+    message.text = MessagesView.encode(message.text);
+    message.roomname = MessagesView.encode(message.roomname);
     var templated = MessageView.render(message);
     $('#chats').prepend(templated);
   },
+
+  refreshFeed: function(data) {
+    $('#chats').html('');
+    App.initialize();
+  },
+
 
 };

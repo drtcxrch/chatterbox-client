@@ -28,7 +28,8 @@
       <div id="rooms">
         Room:
         <select></select>
-        <button>Add Room</button>
+        <button id="addRoom">Add Room</button>
+        <button id="refresh">Refresh Feed</button>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>
@@ -48,6 +49,9 @@
     <script src="client/scripts/app.js"></script>
     <script>
       $(() => App.initialize());
+      $('#refresh').on('click', function() {
+        MessagesView.refreshFeed()
+      });
     </script>
   </body>
 </html>
