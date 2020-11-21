@@ -5,7 +5,6 @@ var MessageView = {
       '<div class="username"><%=username%></div>' +
       '<div class="text"><%=text%></div>' +
       '<div class="roomname"><%=roomname%></div>' +
-      '<div class="wholemessage">' +
     '</div>'
   )
 

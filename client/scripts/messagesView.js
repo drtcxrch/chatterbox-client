@@ -24,8 +24,6 @@ var MessagesView = {
     //I'm guessing that the intiialize function here should be similar to the one for FormView, but instead it will call MessagesView.render. I'm thinking that rather than 'submit' in the case of FormView, we will want messages to render as their created, so we'll have to figure out how to do that. Looks like we're going to call MessageView.render on data in a loop, concatinate it all to a variable and then append it to #chats.
     // append each message to the chats div
 
-
-
     for (var user of data.results) {
 
       // console.log(user);
@@ -54,7 +52,7 @@ var MessagesView = {
       message.text = '';
     }
     if (message.roomname === undefined || message.roomname === null) {
-      message.roomname = 'lobby';
+      message.roomname = 'Lobby';
     }
     message.username = MessagesView.encode(message.username);
     message.text = MessagesView.encode(message.text);

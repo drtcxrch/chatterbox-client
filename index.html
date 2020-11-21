@@ -27,7 +27,8 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select></select>
+        <select id='roomList'>
+        </select>
         <button id="addRoom">Add Room</button>
         <button id="refresh">Refresh Feed</button>
       </div>
@@ -52,6 +53,21 @@
       $('#refresh').on('click', function() {
         MessagesView.refreshFeed()
       });
+      $('#addRoom').on('click', function() {
+        RoomsView.renderRoom();
+      });
+
+      $('#roomList').on('change', function() {
+        var $room = $('#roomList option:selected').text()
+
+      });
+
+      // $('select>option:eq(Lobby)').prop('selected', true);
+              //Go to user feed
+
+
+
+
     </script>
   </body>
 </html>

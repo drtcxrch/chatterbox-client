@@ -24,12 +24,12 @@ var FormView = {
     //   text: text,
     //   roomname: roomname
     // };
-
+    var $room = $('#roomList option:selected').text();
     $input = ($('input'));
     var messObj = {
       username: username,
       text: message,
-      roomname: 'lobby'
+      roomname: $room,
     };
     // console.log(messObj.results);
     MessagesView.renderMessage(messObj);
