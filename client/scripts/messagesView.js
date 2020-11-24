@@ -51,6 +51,7 @@ var MessagesView = {
 
   refreshFeed: function(data) {
     $('#chats').html('');
-    App.initialize();
+    // App.initialize();
+    App.fetch();
   },
 };
