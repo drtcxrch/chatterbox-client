@@ -54,11 +54,22 @@
         MessagesView.refreshFeed()
       });
       $('#addRoom').on('click', function() {
+        // var $room = $('#roomList option:selected').text()
+        // console.log($room);
         RoomsView.renderRoom();
       });
 
       $('#roomList').on('change', function() {
+
         var $room = $('#roomList option:selected').text()
+        console.log($room);
+        if ($room === 'Lobby') {
+          $('#chats').html('');
+          App.fetch();
+        } else {
+          RoomsView.roomFilter($room);
+
+        }
 
       });
 

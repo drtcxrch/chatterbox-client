@@ -4,29 +4,57 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
+    // console.log(document.body.getElementsByClassName('chats'));
     RoomsView.renderRoom('Lobby');
   },
 
-  render: function() {
+  renderAll: function() {
+    Parse.renderAll();
   },
 
   renderRoom: function(arg) {
+    // console.log(arg);
+    var lobbyExists = false;
     var userRoomName = arg || prompt('Enter room name here: ', '');
     userRoomName = MessagesView.encode(userRoomName);
     userRoomNameStrung = JSON.stringify(userRoomName);
-    // var roomName = document.getElementById(userRoomNameStrung);
-    // if (roomName === undefined) {
 
-    var o = new Option(userRoomName, 'value');
-    $(o).html(`<option value=${userRoomNameStrung}>${userRoomName}</option>`);
-    RoomsView.$select.append(o);
+    if (arg !== 'Lobby' || (arg === 'Lobby' && lobbyExists === false)) {
+      var o = new Option(userRoomName, 'id');
+      $(o).html(`<option id=${userRoomNameStrung}>${userRoomName}</option>`);
+      RoomsView.$select.append(o);
+    }
+
+    if (arg === 'Lobby') {
+      lobbyExists = true;
+    }
+
+
     // roomNames.push(userRoomNameStrung);
     // }
   },
 
 
-  roomFilter: function(textbox) {
+  roomFilter: function(roomName) {
+    var $rooms;
+
+
+    $('#chats').children()
+      .each(function () {
+        var element = $(this)
+          .prop('outerHTML');
+
+
+        $rooms = $(this);
+        $(this).hide();
+
+        if (element.indexOf(`<div class=${roomName}>`) !== -1) {
+          $rooms.show();
+        }
+
+      });
   }
 
 };
+
 

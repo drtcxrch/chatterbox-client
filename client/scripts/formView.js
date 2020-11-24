@@ -32,10 +32,14 @@ var FormView = {
       roomname: $room,
     };
     // console.log(messObj.results);
-    MessagesView.renderMessage(messObj);
+    // MessagesView.renderMessage(messObj);
     // console.log(username);
 
-    Parse.create(messObj);
+    Parse.create(messObj, (data) => {
+      _.extend(message, data);
+      MessagesView.renderMessage(messObj);
+
+    });
 
 
 
