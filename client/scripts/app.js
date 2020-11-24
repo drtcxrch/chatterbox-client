@@ -9,7 +9,6 @@ var App = {
 
     FormView.initialize();
     RoomsView.initialize();
-    MessagesView.initialize();
 
 
     // Fetch initial batch of messages
@@ -18,7 +17,7 @@ var App = {
     // setInterval(function() {
     //   App.fetch();
     // }, 5000);
-
+    Friends.toggleStatus();
   },
 
   fetch: function(callback = ()=>{}) {
@@ -44,7 +43,17 @@ var App = {
 
   checkcount: function() {
 
-  }
+  },
+
+
+
+  // For each div that has the username that matches what was clicked
+  // $("button").click(function(){
+  // ().toggleClass('friend');
+  //   $("p").toggleClass("main");
+  // });
+
+
 };
 
 // var count = data.results.length;

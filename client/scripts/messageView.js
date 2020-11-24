@@ -7,10 +7,8 @@ var MessageView = {
       '<div class="roomname"><%=roomname%></div>' +
     '</div>'
   )
-
 };
 
-// ${prefix}'03454545'
 
 
 

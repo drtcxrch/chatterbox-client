@@ -99,16 +99,16 @@ describe('chatterbox', function() {
     });
 
     it('should add a room when clicking add', function() {
-      sinon.spy(Rooms, 'add');
+      sinon.spy(RoomsView, 'renderRoom');
       var prompt = window.prompt;
       window.prompt = sinon.stub().returns('testroom');
 
       App.initialize();
       $('#rooms').find('button').trigger('click');
-      expect(Rooms.add.called).to.be.true;
+      expect(RoomsView.renderRoom.called).to.be.true;
 
       window.prompt = prompt;
-      Rooms.add.restore();
+      RoomsView.renderRoom.restore();
     });
 
     it('should try to send a message upon clicking submit', function() {

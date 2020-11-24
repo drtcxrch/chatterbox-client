@@ -54,13 +54,9 @@
         MessagesView.refreshFeed()
       });
       $('#addRoom').on('click', function() {
-        // var $room = $('#roomList option:selected').text()
-        // console.log($room);
         RoomsView.renderRoom();
       });
-
       $('#roomList').on('change', function() {
-
         var $room = $('#roomList option:selected').text()
         console.log($room);
         if ($room === 'Lobby') {
@@ -68,17 +64,8 @@
           App.fetch();
         } else {
           RoomsView.roomFilter($room);
-
         }
-
       });
-
-      // $('select>option:eq(Lobby)').prop('selected', true);
-              //Go to user feed
-
-
-
-
     </script>
   </body>
 </html>
