@@ -58,7 +58,7 @@
       });
       $('#roomList').on('change', function() {
         var $room = $('#roomList option:selected').text()
-        console.log($room);
+
         if ($room === 'Lobby') {
           $('#chats').html('');
           App.fetch();
